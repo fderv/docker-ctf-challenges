@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login Page</title>
+
+    
+    <link href="{{ url_for('static',filename='css/bootstrap.min.css') }}" rel="stylesheet" id="bootstrap-css">
+    <link href= "{{ url_for('static',filename='css/style.css') }}" rel="stylesheet" type="text/css">
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+
+
+</head>
+
+<body>
+    <div class="wrapper fadeInDown">
+      <div id="formContent">
+        <!-- Tabs Titles -->
+        <div>
+          {{ error }}
+        </div>
+        <!-- Login Form -->
+        <form method="POST">
+          <input type="text" id="login" class="fadeIn first" name="email" placeholder="email">
+          <input type="password" id="password" class="fadeIn second" name="password" placeholder="password">
+          <input type="submit" class="fadeIn third" value="Log In">
+        </form>
+
+        <!-- Signup -->
+        <div id="formFooter">
+          <a class="underlineHover" href="/register">Don't You Have An Account?</a>
+        </div>
+
+      </div>
+    </div>
+</body>
+
+
+
+</html>

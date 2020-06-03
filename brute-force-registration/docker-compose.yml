@@ -1,0 +1,35 @@
+version: '2'
+
+services:
+
+    flask:
+        build: ./flask
+        links:
+            - db
+        container_name: flask
+        restart: always
+        environment:
+            - APP_FLAG=xrtqqaySSQsdzQ
+        expose:
+            - 8080
+
+    nginx:
+        build: ./nginx
+        container_name: nginx
+        restart: always
+        ports:
+            - "80:80"
+
+    db:
+        image: mysql:5.7
+        ports: 
+            - "32000:3306"
+        volumes:
+            - ./db:/docker-entrypoint-initdb.d
+        restart: always 
+        environment:
+            - MYSQL_USER=dbuser
+            - MYSQL_PASSWORD=dbpassword
+            - MYSQL_ROOT_PASSWORD=password
+            - MYSQL_DATABASE=user_db
+            - MYSQL_ALLOW_EMPTY_PASSWORD=yes

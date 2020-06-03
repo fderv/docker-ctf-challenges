@@ -1,0 +1,4 @@
+Flask
+flask_mysqldb
+flask_simple_captcha
+uWSGI
